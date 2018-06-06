@@ -1,0 +1,47 @@
+:::::::::::::::::para cada IDE se puede configurar que simpre compíle cuando se le de guardar a caualuier archivo, por ahora lo dejo sin esa
+
+> Tratar de usar let siempre para definir variables ya que esta definición permite que sea inmutable y que se detecte en el contexto donde esé y no se
+reescriba siempre
+
+
+::::::::::::::::Arrow Functions ::::::::::::::::::::::::::
+> De las primeras caracteristicas es que permite acceder a  los miembros de la función que se está escribiendo actualmente sin ningun problema
+Es decir el this no se ve afectado cuando se ejecuta dentro de una función
+
+name = "Afuera"
+
+lent objeto1 = {
+	name = "julian",
+	career(){
+	
+		setTimeOut(function(){
+		console.log(this.name + "Ingeniero");
+		}, 1500);
+	}
+
+}
+
+sí ejecutamos lo anterior va a salir en consola "indefined Ingeniero"
+con el name = Afuera si funciona debido a que el this dentro de la función career() está apuntando al objeto global
+
+cómo soluciono esto? R/ Usando Arrow Functions :) ejemplo:
+
+lent objeto1 = {
+	name = "julian",
+	career(){	
+		setTimeOut(() => console.log(this.name + "Ingeniero"), 1500);
+	}
+}
+
+
+::::::::::::::::Destructuring :::::::::::::
+Se puede con:
+> objetos(no importa el orden siempre va a tomar los valores del objeto), 
+> arreglos(es secuencia de acuerdo a las posiciones de arreglo) Ver clase 17 
+
+::::::::::::::::Promesas(son de ES6 ):::::::::::::::::::::
+
+
+
+::::::::::::::::::::::::::::::::::::::::::
+
