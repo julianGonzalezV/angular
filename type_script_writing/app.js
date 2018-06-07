@@ -13,27 +13,125 @@ function hello2(name) {
 }
 hello2(gokuObject.name);
 //:::::::::::::::::::::::::Arrow functions:::::::::::::::::::::::::::::::::::::::::::
-var name2 = "Otro";
-var person1 = {
+let name2 = "Otro";
+let person1 = {
     name2: "Naruto",
-    fullName: function () {
+    fullName() {
         console.log(" Common function " + this.name2 + " ->apellido " + "Gonzalez");
     }
 };
-var person2 = {
-    name2: "Boruto",
-    fullName: function () {
-        setTimeout(function () {
-            console.log(name2 + " ->apellido " + "Gonzalez");
-        }, 1500);
-    }
-};
-var person3 = {
+//Note como acá no es posible el acceso a nombre o si fuese posible iría por la global name2 en la línea 23
+// o tendría que colocarse como name2 sin this
+/*
+let person2 = {
+  name2: "Boruto",
+  fullName(){
+
+    setTimeout( function() {
+      console.log("person2 -> "+ this.name2);
+
+    },1500);
+  }
+}
+*/
+let person3 = {
     name2: "Sazuke",
-    fullName: function () {
-        setTimeout(function () { return console.log(" Arrow Function " + name2 + " ->apellido " + "Gonzalez"); }, 1500);
+    fullName() {
+        setTimeout(() => console.log(" Arrow Function " + this.name2 + " ->apellido " + "Gonzalez"), 1500);
     }
 };
 person1.fullName();
-person2.fullName();
+//error: 
+//person2.fullName();
 person3.fullName();
+console.log("//:::::::::::::::::::::::::Destructuring:::::::::::::::::::::::::::::::::::::::::::");
+console.log("//::::1) :Objects::::::::---");
+let cow = {
+    cowname: "TORO",
+    id: "1232",
+    brand: "cebu"
+};
+//lo que haciamos antes
+let cow_name = cow.cowname;
+let cow_id = cow.id;
+let cow_brand = cow.brand;
+console.log(cow_name, cow_id, cow_brand);
+// con destructuring: Se debe llamar igual los campos al del objeto
+//V1: let {cowname, id, brand} = cow;
+//Note como el orden no afecta!, desmomenta el siguiente
+//V1.1
+let { brand, cowname, id } = cow;
+//V1.2, si coloca : después del nombre en destructuring signica que es un alias y no EL TIPO como quizás
+//usted pretenda
+//let {brand:string, cowname, id} = cow;
+//tendria que llamrlo en el console como string (nombre no tipo! )
+//console.log(cowname, id, string);
+console.log(cowname, id, brand);
+console.log("//::::1) :Arrays::::::::---");
+//con el string[] estamos diciendo que todos los elementos van a ser string
+let boruto_names = ["Boruto", "Sarada", "toneri"];
+//acá es destructuring
+let [val1, val2, val3, val4] = boruto_names;
+//Note como val4 imprime undefined, pués es cierto no hay un cuarto elemento en el array
+console.log(val1, val2, val3, val4);
+//que pasa si solo deseo el 3cer valor?
+let [, , valTres] = boruto_names;
+console.log(valTres);
+console.log("//:::::::::::::::::::::::::Promesas ES6:::::::::::::::::::::::::::::::::::::::::::");
+//Son propias de es6 (por eso creo que en el tsconfig.json el targe debe apuntar al es2016) que le hacía falta al js
+//resolver es lo que se ejecutario si la promesa se cumple y sino 
+//se ejecuta el reject (conenciones pero se pueden llama como se deseee)
+/*
+Promise recibe una funcion que recibe 2 parámetros que también son funciones a
+ejecutar cuando se ejecuta bien o mal la promesa
+*/
+let prom1 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        console.log("Promesa 1 terminanda");
+        //si termina bien
+        resolve();
+        //Sí termina mal entonces ejecuta el reject
+        //reject();
+    }, 1500);
+});
+prom1.then(function () {
+    console.log("Se termina bien ");
+}, function () {
+    console.error("Se termina MAL :s ) ");
+});
+console.log("//:::::::::::::::::::::::::Interfaces TS:::::::::::::::::::::::::::::::::::::::::::");
+//Problema:
+function task1(worker) {
+    console.log("Taks1 worker --> " + worker.name);
+}
+//v1
+let actorBoruto = {
+    name: "Shikadai",
+    role: "ninja de la hoja"
+};
+//Que pasaría sí el atributo name se llamara nombre
+//Saldría Taks1 worker --> undefined..note como en la funcion task1 no se generó error, pues le dijimos que eny y además
+//asumimos que tendría el atributo name
+let actor2Boruto = {
+    name: "Sakura",
+    role: "ninja de la hoja"
+};
+task1(actorBoruto);
+task1(actor2Boruto);
+//y si tenía una función task2 solo es cambiarle el tipo
+function task2(worker) {
+    console.log("Taks2::: worker --> " + worker.name);
+}
+console.log("//:::::::::::::::::::::::::Orientado a Objetos Intro:::::::::::::::::::::::::::::::::::::::::::");
+class Pet {
+    constructor(name, breed) {
+        this.name = "";
+        this.breed = "";
+        this.isAdopted = false;
+        this.age = 0;
+        this.name = name;
+        this.breed = breed;
+    }
+}
+let garfield = new Pet("garfield", "fatCat");
+console.log("Pet es ---> " + garfield.breed);
