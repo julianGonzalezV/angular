@@ -206,3 +206,23 @@ Se pueden haces varios imports en nuestra clase o también si se nos llena mucho
 entonces se crea un index.ts que tenga todos los imports yt así ya podemos importar en una sola línea :)
 import{Class1, Class2} from "./classes/index"
 */
+
+
+console.log("//:::::::::::::::::::::::::Decorators:::::::::::::::::::::::::::::::::::::::::::")
+
+
+function consola( constructor:Function ){
+  console.log(constructor)
+};
+
+@consola
+class Person{ 
+
+  //note el public antes el atributo esto es lo mismo que escribir elatributo por fuera como en Pet (ver arriba)
+  constructor(public name:string){
+
+
+  }
+  
+}
+

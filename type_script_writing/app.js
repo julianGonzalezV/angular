@@ -1,4 +1,10 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 function hello1(name) {
     console.log("hola " + name);
 }
@@ -135,3 +141,27 @@ class Pet {
 }
 let garfield = new Pet("garfield", "fatCat");
 console.log("Pet es ---> " + garfield.breed);
+console.log("//:::::::::::::::::::::::::Concepto de modulos:::::::::::::::::::::::::::::::::::::::::::");
+/*
+Permiten segmentar el proyecto(nuestro código) en varios archivos
+Palabras reservadas:
+1) export (anes de class) : Para decir que se va a poder exportar, lo que permute que se realice import en otras clases
+
+Se pueden haces varios imports en nuestra clase o también si se nos llena mucho y queremos que sea en una sola línea
+entonces se crea un index.ts que tenga todos los imports yt así ya podemos importar en una sola línea :)
+import{Class1, Class2} from "./classes/index"
+*/
+console.log("//:::::::::::::::::::::::::Decorators:::::::::::::::::::::::::::::::::::::::::::");
+function consola(constructor) {
+    console.log(constructor);
+}
+;
+let Person = class Person {
+    //note el public antes el atributo esto es lo mismo que escribir elatributo por fuera como en Pet (ver arriba)
+    constructor(name) {
+        this.name = name;
+    }
+};
+Person = __decorate([
+    consola
+], Person);
