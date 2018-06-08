@@ -1,7 +1,9 @@
 ng -version
 ng new my-app (separeel nombre por guiones)
 ng serve (inciar el servidor)
-nog serve  -o (para abrir de una vez el navegador)
+ng serve  -o (para abrir de una vez el navegador)
+ng generate component components/footer = ng g c components/footer  
+
 
 
 npm install (para bajar todos los modulos o paquetes de node de mi proyecto, por lo regular en git no subo esas carpetas por eso el que lo descarga debe ejecutar el comando)

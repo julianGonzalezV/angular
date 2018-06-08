@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col">
+    <h1>NG-IF</h1>
+
+    <!-- ngIf destruye el elemento por completo nada de que ocultya o algo así  ..-->
+    <div *ngIf="show" class="card text-white bg-primary mb-3" style="width: 100%;">
+      <!--<div class="card-header">Header</div> para este caso le quitamos el header-->        
+        <div class="card-body">
+          <h5 class="card-title">{{ variable1.attr1 }}</h5>
+          <p class="card-text"> {{ variable1.attr2 }}</p>
+        </div>
+    </div>
+
+    <button (click)=" show = !show " class="btn btn-outline-primary btn-block">
+      Mostrar/Ocltar
+    </button>
+
+  </div>
+
+  <div class="col">
+    <h1>NG-FOR</h1>
+
+    <ul class="list-group">
+        <li *ngFor="let record of myArray; let fileNumber = index" class="list-group-item">{{ fileNumber + 1 }} - {{ record }}</li>
+      </ul>
+
+  </div>
+</div>
