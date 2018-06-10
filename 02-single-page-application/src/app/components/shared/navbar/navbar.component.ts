@@ -12,4 +12,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  petSearch(textVal:string) {
+    console.log(textVal);
+  }
+
 }

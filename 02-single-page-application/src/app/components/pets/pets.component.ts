@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PetsComponent implements OnInit {
   
   pets:Pet[] = [];
+ 
 
   constructor( private _petsService: PetsService,
                private _router: Router  ) { }
@@ -22,6 +23,12 @@ export class PetsComponent implements OnInit {
 
   petDetail( pos:number ) {
     this._router.navigate(['/pet',pos]);
+  }
+
+  searchPet(textValue:string):Pet[] {
+    let  petsArr:Pet[] = this.pets.filter(x => x.name.indexOf( textValue.toLowerCase() ) >= 0);
+    return petsArr;
+   
   }
 
 }
