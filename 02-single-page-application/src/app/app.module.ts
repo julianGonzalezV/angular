@@ -1,19 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//Routes 
+// Routes
 import { APP_ROUTING } from './app.routes';
 
 
-//Services
+// Services
+import { PetsService } from './services/pets.service';
 
-
-//Components
+// Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PetsComponent } from './components/pets/pets.component';
+import { PetComponent } from './components/pet/pet.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,16 @@ import { PetsComponent } from './components/pets/pets.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    PetsComponent
+    PetsComponent,
+    PetComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    PetsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

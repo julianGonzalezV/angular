@@ -3,13 +3,16 @@
 
 
 <div class="card-columns">
-  <div class="card">
-    <img class="card-img-top" src="assets/images/dog1.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      <button type="button" class="btn bnt-outline-primary btn-block"> Más acerca de mi</button>
+    <div class="card animated fadeIn fast" *ngFor="let pet of pets; let position = index">
+
+        <img class="card-img-top" [src]="pet.img" [alt]="pet.name">
+        <div class="card-body">
+            <h5 class="card-title">{{ pet.name }}</h5>
+            <p class="card-text">{{ pet.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ pet.age }}</small></p>
+            <button (click)="petDetail(position)" class="btn bnt-outline-primary btn-block"> 
+              Más acerca de mi</button>
+            <a [routerLink]="['/pet',position]" class="btn bnt-outline-primary btn-block" href=""> Más Link</a>
+        </div>
     </div>
-  </div>
 </div>
