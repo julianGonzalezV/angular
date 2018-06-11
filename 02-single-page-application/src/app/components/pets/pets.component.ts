@@ -25,10 +25,6 @@ export class PetsComponent implements OnInit {
     this._router.navigate(['/pet',pos]);
   }
 
-  searchPet(textValue:string):Pet[] {
-    let  petsArr:Pet[] = this.pets.filter(x => x.name.indexOf( textValue.toLowerCase() ) >= 0);
-    return petsArr;
-   
-  }
+ 
 
 }

@@ -79,6 +79,14 @@ retorna todos los pets que da el servicio, por ahora es un dummie
     return this.dataPets[index];
   }
 
+  searchPet(textValue:string):Pet[] {
+    console.log('searchPet method');
+    return this.dataPets.filter(x => x.name.toLowerCase().indexOf(textValue.toLowerCase()) >= 0 );
+    //console.log('searchPet', petsArr);
+    //return petsArr;
+   
+  }
+
 }
 
 

@@ -36,7 +36,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Busca tu mascota" aria-label="Search" (keyup.enter)="petSearch(buscarText.value)" #buscarText>
+            <input class="form-control mr-sm-2" #buscarText type="text" placeholder="Busca tu mascota" aria-label="Search" (keyup.enter)="petSearch(buscarText.value)">
             <button (click)="petSearch(buscarText.value)" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
         </form>
     </div>
