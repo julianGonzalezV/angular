@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  petSearch(textVal:string) {
+  petSearch( textVal:string ) {
     console.log(textVal);
     this._router.navigate(['/filteredPets',textVal]);
   }

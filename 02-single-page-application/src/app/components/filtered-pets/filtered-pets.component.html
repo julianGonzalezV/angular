@@ -11,5 +11,5 @@
 
 
 <div class="card-columns">
-    <app-pet-card [pet]="petIter" [position]="position" *ngFor="let petIter of pets; let position = index"></app-pet-card>
+    <app-pet-card (selectedPet) = "petDetail( $event )" [pet]="petIter" [position]="petIter.index" *ngFor="let petIter of pets"></app-pet-card>
 </div>

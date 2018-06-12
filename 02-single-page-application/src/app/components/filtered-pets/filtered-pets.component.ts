@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PetsService, Pet } from '../../services/pets.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-filtered-pets',
@@ -12,7 +12,9 @@ export class FilteredPetsComponent implements OnInit {
   pets:Pet[] = []; 
   petFilter:String = "Sin filtro";
 
-  constructor(private _petsService: PetsService, private _activatedR: ActivatedRoute) { }
+  constructor(private _petsService: PetsService, 
+              private _activatedR: ActivatedRoute,
+              private _router: Router) { }
 
   ngOnInit() {
     console.log("holaaaa");   
@@ -23,5 +25,10 @@ export class FilteredPetsComponent implements OnInit {
     });
   
   }
+
+  petDetail( index:number ){
+    this._router.navigate(['/pet',index]);
+  }
+
 
 }

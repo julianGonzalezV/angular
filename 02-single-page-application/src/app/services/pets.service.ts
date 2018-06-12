@@ -81,10 +81,18 @@ retorna todos los pets que da el servicio, por ahora es un dummie
 
   searchPet(textValue:string):Pet[] {
     console.log('searchPet method');
-    return this.dataPets.filter(x => x.name.toLowerCase().indexOf(textValue.toLowerCase()) >= 0 );
-    //console.log('searchPet', petsArr);
+    let array1=  Array.from(this.dataPets, (pet,index) =>{
+      let petResult:Pet = {name: pet.name, bio: pet.bio, img: pet.img, age:pet.age, myFriend: pet.myFriend,   gender: pet.gender };
+      if(pet.name.toLowerCase().indexOf(textValue.toLowerCase()) >= 0){
+        petResult.index = index;      
+      }
+      return petResult;
+    }).filter(x => x.name.toLowerCase().indexOf(textValue.toLowerCase()) >= 0 );
+    
+    
+    console.log('searchPet', array1);
     //return petsArr;
-   
+   return array1;
   }
 
 }
@@ -97,4 +105,5 @@ export interface Pet {
     age: string;
     myFriend: string;
     gender: string;
+    index?: number;
 }

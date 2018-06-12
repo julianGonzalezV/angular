@@ -9,13 +9,18 @@ export class PetCardComponent implements OnInit {
   @Input() pet:any = {};
   @Input() position:number;
 
-  constructor() { }
+  @Output() selectedPet:EventEmitter<number>;
+
+  constructor() { 
+    this.selectedPet = new EventEmitter();
+  }
 
   ngOnInit() {
   }
 
   petDetail() {
-    console.log(this.position);
+    console.log("Detail del CARD component");
+    this.selectedPet.emit( this.position );
   }
 
 

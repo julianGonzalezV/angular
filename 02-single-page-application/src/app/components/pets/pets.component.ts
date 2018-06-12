@@ -20,4 +20,8 @@ export class PetsComponent implements OnInit {
     console.log(this.pets);
   }
 
+  petDetail( index:number ){
+    this._router.navigate(['/pet',index]);
+  }
+
 }
