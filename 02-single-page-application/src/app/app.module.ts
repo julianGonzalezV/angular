@@ -16,6 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PetsComponent } from './components/pets/pets.component';
 import { PetComponent } from './components/pet/pet.component';
 import { FilteredPetsComponent } from './components/filtered-pets/filtered-pets.component';
+import { PetCardComponent } from './components/pet-card/pet-card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FilteredPetsComponent } from './components/filtered-pets/filtered-pets.
     AboutComponent,
     PetsComponent,
     PetComponent,
-    FilteredPetsComponent
+    FilteredPetsComponent,
+    PetCardComponent
   ],
   imports: [
     BrowserModule,
