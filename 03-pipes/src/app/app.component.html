@@ -168,6 +168,20 @@
           <td>custom pipe that shows only the first position of the name in capital letter  </td>
           <td>{{ name2 | capitalizado: false}}</td>
       </tr>
+
+      <tr>
+          <td>{{ name }}</td>
+          <td>
+            password: {{ activar }}
+            <br>
+            <button (click)="activar = !activar"
+            type="button" class="btn btn-outline-primary"> Ebable/Disable </button>
+
+
+          </td>
+          <td>contrasena custom pipe </td>
+          <td>{{ name | contrasena: activar }}</td>
+      </tr>
       
       
     </tbody>

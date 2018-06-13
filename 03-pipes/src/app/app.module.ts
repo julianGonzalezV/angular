@@ -6,11 +6,13 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
 //para configurar el location del cliente e idioma
 import { LOCALE_ID } from '@angular/core';
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { ContrasenaPipe } from './pipes/contrasena.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     CapitalizadoPipe,
-    DomseguroPipe
+    DomseguroPipe,
+    ContrasenaPipe
   ],
   imports: [
     BrowserModule
