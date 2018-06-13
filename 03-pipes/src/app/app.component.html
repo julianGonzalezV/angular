@@ -55,6 +55,119 @@
           <td>It cuts  the first N position from the original structure (any string , array ..) And returns it </td>
           <td>{{ arreglo1 | slice:0:3 }}</td>
       </tr>
+
+      <tr>
+          <td>{{ pi }}</td>
+          <td>number</td>
+          <td>Apply formato to a number value, acoording to the amoun of decimal we want, if no specified then it puts 3 decimals</td>
+          <td>{{ pi | number }}</td>
+      </tr>
+      <tr>
+          <td>{{ pi }}</td>
+          <td>number:'3.0-0'</td>
+          <td>Apply formato to a number value, acoording to the amoun of decimal we want, if no specified then it puts 3 decimals en este ejemplo decimos que muestre 2 digitos en la parte entrea y 5 en la parte decimal
+          </td>
+          <td>{{ pi | number:'2.0-5' }}</td>
+      </tr>
+      <tr>
+          <td>{{ testPercentage }}</td>
+          <td>percent</td>
+          <td>It apply percentage (* 100) an shows the result with the % symbol</td>
+          <td>{{ testPercentage | percent }}</td>
+      </tr>
+      <tr>
+          <td>{{ testPercentage }}</td>
+          <td>percent: '2.2-2'</td>
+          <td>It apply percentage (* 100) an shows the result with the % symbol</td>
+          <td>{{ testPercentage | percent: '2.2-2' }}</td>
+      </tr>
+      <tr>
+          <td>{{ salary }}</td>
+          <td>currency</td>
+          <td>Formats any number to currency val</td>
+          <td>{{ salary | currency }}</td>
+      </tr>
+      <tr>
+          <td>{{ salary }}</td>
+          <td>currency:'EUR'</td>
+          <td>Formats any number to currency val, based on Europe location</td>
+          <td>{{ salary | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+          <td>{{ salary }}</td>
+          <td>currency:'EUR':true</td>
+          <td>Formats any number to currency val, based on Europe location and apply the Symbol for the specific country</td>
+          <td>{{ salary | currency:'EUR':true }}</td>
+      </tr>
+      <tr>
+          <td>{{ salary }}</td>
+          <td>currency:'EUR':true:'4.0-0'</td>
+          <td>Formats any number to currency val, based on Europe location and apply the Symbol for the specific country</td>
+          <td>{{ salary | currency:'EUR':true:'4.0-0' }}</td>
+      </tr>
+      <tr>
+          <td>{{ salary }}</td>
+          <td>number:'.2-2'</td>
+          <td>Formats the value to a number with 2 decimals</td>
+          <td>{{ salary | number:'.2-2'}}</td>
+      </tr>
+
+      <tr>
+          <td>{{ promiseValue }}</td>
+          <td>async</td>
+          <td>Mire como se comporta , muestra object object</td>
+          <td>{{ promiseValue }}</td>
+      </tr>
+
+      <tr>
+          <td>{{ promiseValue }}</td>
+          <td>async</td>
+          <td>Muestra el json de la promesa</td>
+          <td>{{ promiseValue | json }}</td>
+      </tr>
+
+      <tr>
+          <td>{{ promiseValue }}</td>
+          <td>async</td>
+          <td>Acá si espera el tiempo y muestra </td>
+          <td>{{ promiseValue | async }}</td>
+      </tr>
+
+      <tr>
+          <td>{{ dateTest }}</td>
+          <td>date</td>
+          <td>Default format </td>
+          <td>{{ dateTest | date }}</td>
+      </tr>
+
+      <tr>
+          <td>{{ dateTest }}</td>
+          <td>date: 'medium'</td>
+          <td>medium pipe </td>
+          <td>{{ dateTest | date:'medium' }}</td>
+      </tr>
+
+
+      <tr>
+          <td>{{ dateTest }}</td>
+          <td>date: 'MMMM - dd'</td>
+          <td>medium pipe </td>
+          <td>{{ dateTest | date:'MMMM - dd' }}</td>
+      </tr>
+
+      <tr>
+          <td>{{ name2 }}</td>
+          <td>Custom Capital</td>
+          <td>custom pipe </td>
+          <td>{{ name2 | capitalizado}}</td>
+      </tr>
+
+      <tr>
+          <td>{{ name2 }}</td>
+          <td>capitalizado: false </td>
+          <td>custom pipe that shows only the first position of the name in capital letter  </td>
+          <td>{{ name2 | capitalizado: false}}</td>
+      </tr>
       
       
     </tbody>
@@ -64,4 +177,25 @@
   <ul>
     <li *ngFor = " let elem of arreglo1 | slice:5:20">{{ elem }}</li>
   </ul>
+  <hr>
+
+  <h4>Sin JSON pipe</h4>
+  {{ pet }}
+  <hr>
+  <h4>JSON pipe</h4>
+  {{ pet | json }}
+  <hr>
+  <h4>JSON pipe + Bootstrap</h4>
+  <pre>{{ pet | json }}</pre>
+  <hr>
+
+  <h4>Youtube <small>video</small></h4>
+  <!--Esta versión de {{ video }} genera unsafe value used in a resource URL context (see http://g.co/ng/security#xss)
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video }}" frameborder="0" allowfullscreen></iframe>-->
+
+
+  <!--Esta versión de {{ video }} genera unsafe value used in a resource URL context (see http://g.co/ng/security#xss)-->
+  <iframe width="560" height="315" [src]="video | domseguro: 'https://www.youtube.com/embed/'" frameborder="0" allowfullscreen></iframe>
+  <hr>
+
 </div>
