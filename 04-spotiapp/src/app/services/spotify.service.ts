@@ -37,6 +37,8 @@ export class SpotifyService {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer BQBPQPjKzhZ8HUHArdjd7D_fEszSKQLnCVoFkUYYOP4L0FAfucBULVuBJjR_s0tjM34PUECPo3tQGdO9GWmfU_d9mxQdKpPMOYOjsp7s_3NeeadGV6V65GZHDamosYiIgP3-JMgASstdmt9h6u2T0QGlvCSz86U'
     });
-    return this.http.get(`https://api.spotify.com/v1/search?q=${ artistFilter }&type=artist`, { headers });
+    return this.http.get(`https://api.spotify.com/v1/search?q=${ artistFilter }&type=artist`, { headers })
+                    .pipe( map( data => data['artists'].items
+                    ));
   }
 }

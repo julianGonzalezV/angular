@@ -19,8 +19,8 @@ export class SearchComponent implements OnInit {
     console.log(termino);
     this.spotif.getArtist(termino)
     .subscribe( (response: any) => {
-      console.log(response.artists.items);
-      this.artistas = response.artists.items;
+      console.log(response);
+      this.artistas = response;
     } );
   }
 
