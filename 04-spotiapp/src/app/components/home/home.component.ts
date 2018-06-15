@@ -26,15 +26,13 @@ export class HomeComponent implements OnInit {
 
 
   nuevasCanciones: any[] = [];
-  constructor( private spotif: SpotifyService ) { 
+  constructor( private spotif: SpotifyService ) {
     this.spotif.getNewReleases()
     .subscribe( (response: any) =>{
       console.log(response.albums.items);
       this.nuevasCanciones = response.albums.items;
-    } );;
+    } );
   }
-
-  
 
   ngOnInit() {
   }
