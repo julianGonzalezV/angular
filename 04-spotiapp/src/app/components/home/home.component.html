@@ -2,16 +2,4 @@
   <li *ngFor="let pais of paises"> {{ pais.name }} - {{ pais.population|number }}  </li>
 </ul> -->
 
-
-<div class="card-columns" >
-  <div class="card" *ngFor = "let newSong of nuevasCanciones">
-    <img class="card-img-top" [src]="newSong.images[0].url" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ newSong.name }}</h5>
-      <p class="card-text">
-        <span class="badge badge-pill badge-primary" *ngFor = "let artist of newSong.artists ">
-          {{ artist.name }}</span>
-      </p>
-    </div>
-  </div>
-</div>
+<app-cards [items]="nuevasCanciones"></app-cards>
