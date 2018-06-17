@@ -12,6 +12,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class HomeComponent implements OnInit {
 
   paises: any[] = [];
+  loading: boolean = false;
 
   // Se inyecta en el constructor
   /*constructor( private http: HttpClient ) {
@@ -27,9 +28,12 @@ export class HomeComponent implements OnInit {
 
   nuevasCanciones: any[] = [];
   constructor( private spotif: SpotifyService ) {
+    this.loading = true;
+
     this.spotif.getNewReleases()
     .subscribe( (response: any) => {
       this.nuevasCanciones = response;
+      this.loading = false;
     } );
   }
 
