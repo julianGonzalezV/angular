@@ -12,7 +12,11 @@ import { SpotifyService } from '../../services/spotify.service';
 export class HomeComponent implements OnInit {
 
   paises: any[] = [];
-  loading: boolean = false;
+  loading = false;
+  error = {
+    isError : false,
+    message : 'No error'
+  };
 
   // Se inyecta en el constructor
   /*constructor( private http: HttpClient ) {
@@ -34,6 +38,11 @@ export class HomeComponent implements OnInit {
     .subscribe( (response: any) => {
       this.nuevasCanciones = response;
       this.loading = false;
+    }, error => {
+        console.log('Error Message', error.error.error.message);
+        this.loading = false;
+        this.error.isError = true;
+        this.error.message = error.error.error.message;
     } );
   }
 

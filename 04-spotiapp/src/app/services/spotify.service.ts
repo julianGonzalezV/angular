@@ -20,7 +20,7 @@ export class SpotifyService {
   getQuery( query: string ) {
     const URL = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQCjTrfhSiDN8xh2_60YjKepn8eoEd4ClAJqY2jQY--Ue0bZUMmi_fORwqrXwbZbRf2WzyZ7tj4k_MlhyHcXRyBwo8unVJmQx810sL-OYP2Nm0wxt5d7LSGcodZvbPXrNT5kNGV_bC7lf-Qt1t7rskSP9xwvD58'
+      'Authorization': 'Bearer QArjGLR2iR_nQKDOPmC7aTh4cJTegYw1IuDrZa7HlDmjMUatW_3rI_-bXNNabnTd1J3RmRzI2gYuT5ZyzNXXYmSSUctkXkgWNMkYK4RDCp__pYTu3wy11dgPWHyp5yY0O_JTRgIOh73ZlyWx2a9I9m5W91lhOw'
     });
 
     return this.http.get(URL, { headers });
@@ -51,6 +51,15 @@ export class SpotifyService {
   getArtist(id: string) {
     return this.getQuery(`artists/${ id }`)
     .pipe( map( data => data
+      ));
+  }
+
+
+  getTopTrack(id: string) {
+    // data['tracks'] quiere decir que dentro de la respuesta que normalmente viene un object extraemos la
+    // lista de tracks
+    return this.getQuery(`artists/${ id }/top-tracks?country=CO`)
+    .pipe( map( data => data['tracks']
       ));
   }
 }

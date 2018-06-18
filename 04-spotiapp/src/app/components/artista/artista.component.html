@@ -1,3 +1,49 @@
-<p>
-  artista works!
-</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<div class="row" *ngIf="!loading">
+    <div class="col-2">
+        <img [src]="artist.images | noimage" class="img-thumb img-circle">
+    </div>
+
+    <div class="col">
+        <h3>{{ artist.name }}</h3>
+        <p>
+            <a [href]="artist.external_urls.spotify" target="_blank"> Ir a la pg del artista</a>
+        </p>
+
+    </div>
+
+    <div class="col-4 text-right">
+        <button routerLink="/search" class="btn btn-outline-danger">
+          Volver 
+      </button>
+
+    </div>
+</div>
+
+<div class="row m-5">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Album</th>
+                    <th>Song</th>
+                    <th>PreView</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <th><img [src]="track.album.images | noimage" class="img-thumb img-circle"></th>
+                    <th>{{ track.album.name }}</th>
+                    <th>{{ track.name }}</th>
+                    <th>
+                        <audio [src]="track.preview_url" controls></audio>
+                        <h6>Este es el widget de spotify: </h6>
+                        <iframe [src]=" track.uri | domseguro " width="300" height="60" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
