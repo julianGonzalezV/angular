@@ -12,10 +12,15 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateComponent implements OnInit {
 
-  user: Object = {  nombre: "Juliano", 
-                    apellido: "Tenorio", 
-                    correo: "juanT@gmail.com"
+  user: Object = {  nombre: null, 
+                    apellido: null, 
+                    correo: null,
+                    pais: "",
+                    genero: "Male"
                   }
+
+  paises = [{cd: 'COL', nombre:'COLOMBIA'}, 
+            {cd: 'CHI', nombre:'CHILE'}]
 
   constructor() { }
 
