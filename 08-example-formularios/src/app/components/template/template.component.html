@@ -1,0 +1,87 @@
+<h4>Formularios <small>::::Ejemplo template:::</small></h4>
+<hr>
+<!--#forma="ngForm"  : en forma se guarda la referencia del formulario completo
+con su estado touched:false, untouched:false y demás campos  -->
+<form (ngSubmit)="guardarForm(forma)" #forma="ngForm" novalidate="">
+
+  <div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               name="nombre"
+               [(ngModel)]="user.nombre"
+               required
+               minlength="4"
+               placeholder="Nombre"
+               #nombre = "ngModel">
+
+                 <!-- #nombre = "ngModel": Quiere decir que definimos una variable nombre que va a ser igual al objeto o 
+              modelo que angular le asigne al input como tal-->
+        <div *ngIf="nombre.errors?.required">
+          Required!
+        </div>
+        <div *ngIf="nombre.errors?.minlength.requiredLength">
+            At least {{ nombre.errors.minlength.requiredLength }} charaters
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               name="apellido"
+               [(ngModel)]="user.apellido"
+               required
+               placeholder="Apellido"
+               #apellido = "ngModel">
+             
+        <div *ngIf="apellido.errors?.required">
+          Required!
+        </div>
+        
+       
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="email"
+             name="correo"
+             [(ngModel)]="user.correo"
+             required
+             pattern="[a-z0-9.]+@[a-z0-9.-]+\.[a-z]{2,3}"
+             placeholder="Correo electrónico"
+             #correo= "ngModel">
+      <div *ngIf="correo.errors?.required">
+        Required!
+      </div>
+      <div *ngIf="correo.errors?.pattern">
+          mail format error
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>
