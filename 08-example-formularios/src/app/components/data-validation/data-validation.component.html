@@ -28,7 +28,7 @@ y en el componente.ts : import { FormGroup, FormControl, Validators } from '@ang
         <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors?.required" class="form-control-feedback">
           Nombre requerido
         </div>
-        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors.minlength" class="form-control-feedback">
+        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors && formaDesdeData.get('nombreCompleto.nombre').errors.minlength " class="form-control-feedback">
           At least {{ formaDesdeData.get('nombreCompleto.nombre').errors.minlength.requiredLength }} charaters
         </div>
        
@@ -59,13 +59,52 @@ y en el componente.ts : import { FormGroup, FormControl, Validators } from '@ang
     </div>
   </div>
 
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Password"
+             formControlName="password1">
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Confirmar password</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Confirmar password"
+             formControlName="password2">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Hobbies</label>
+      <div class="col-md-8" formArrayName = "pasatiempo">
+        <input *ngFor="let hobbie of formaDesdeData.controls['pasatiempo'].controls; let i = index"
+          type="text"
+          [formControlName]="i"
+          class="form-control">    
+      </div>
+      <button (click)="addHobbie()" class="btn btn-primary">
+        Nuevo
+      </button>
+    </div>
+
 
 
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
     <div class="input-group col-md-8">
+      <!--  [disabled] = "!formaDesdeData.valid"-->
       <button 
-        [disabled] = "!formaDesdeData.valid"
+      
         type="submit" 
         class="btn btn-outline-primary">
         Guardar
