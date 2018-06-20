@@ -16,12 +16,14 @@ export class TemplateComponent implements OnInit {
                     apellido: null, 
                     correo: null,
                     pais: "",
-                    genero: "Male"
+                    genero: "Male",
+                    acepta: false
                   }
 
   paises = [{cd: 'COL', nombre:'COLOMBIA'}, 
             {cd: 'CHI', nombre:'CHILE'}]
 
+  generos: string[] = ['Male','Female']
   constructor() { }
 
   ngOnInit() {

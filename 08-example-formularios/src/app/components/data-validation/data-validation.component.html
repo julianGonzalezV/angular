@@ -1,3 +1,78 @@
-<p>
-  data-validation works!
-</p>
+<h4>Formularios <small> data </small></h4>
+<!--based on Data (logica en el component y no en el html aveces se vuelve inmanejable manejar
+  tanta logica allí
+Cada aproximacion tiene sus ventajas pero aveces es mejor delegar responsabilidad al componen.ts
+
+para ello se debe configurar los imports en app.module : import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+y en el componente.ts : import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+-->
+<hr>
+<!--novalidate="novalidate" es para que no muestre la validacion de html 5 de que hay un error en el campo-->
+<form [formGroup]="formaDesdeData" (ngSubmit)="SaveChanges()" novalidate="novalidate">
+
+  <!--formGroupName="nombreCompleto" 
+    quiere decir que todo el div va a ser el grupo de la variable nombre completo del componente-->
+  <div formGroupName="nombreCompleto">
+
+    <div class="form-group row" [ngClass]="{ 'has-danger': !formaDesdeData.controls['nombreCompleto'].controls['nombre'].valid }">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre"
+               formControlName="nombre">
+        
+        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors?.required" class="form-control-feedback">
+          Nombre requerido
+        </div>
+        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors.minlength" class="form-control-feedback">
+          At least {{ formaDesdeData.get('nombreCompleto.nombre').errors.minlength.requiredLength }} charaters
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Apellido"
+               formControlName="apellido">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="email"
+             placeholder="Correo electrónico"
+             formControlName="correo">
+    </div>
+  </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button 
+        [disabled] = "!formaDesdeData.valid"
+        type="submit" 
+        class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  {{ formaDesdeData.valid }}
+
+</form>
