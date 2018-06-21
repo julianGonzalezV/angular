@@ -12,106 +12,100 @@ y en el componente.ts : import { FormGroup, FormControl, Validators } from '@ang
 <!--novalidate="novalidate" es para que no muestre la validacion de html 5 de que hay un error en el campo-->
 <form [formGroup]="formaDesdeData" (ngSubmit)="SaveChanges()" novalidate="novalidate">
 
-  <!--formGroupName="nombreCompleto" 
+    <!--formGroupName="nombreCompleto" 
     quiere decir que todo el div va a ser el grupo de la variable nombre completo del componente-->
-  <div formGroupName="nombreCompleto">
+    <div formGroupName="nombreCompleto">
 
-    <div class="form-group row" [ngClass]="{ 'has-danger': !formaDesdeData.controls['nombreCompleto'].controls['nombre'].valid }">
-      <label class="col-2 col-form-label">Nombre</label>
-      <div class="col-8">
+        <div class="form-group row" [ngClass]="{ 'has-danger': !formaDesdeData.controls['nombreCompleto'].controls['nombre'].valid }">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
 
-        <input class="form-control"
-               type="text"
-               placeholder="Nombre"
-               formControlName="nombre">
-        
-        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors?.required" class="form-control-feedback">
-          Nombre requerido
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+
+                <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors?.required" class="form-control-feedback">
+                    Nombre requerido
+                </div>
+                <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors && formaDesdeData.get('nombreCompleto.nombre').errors.minlength " class="form-control-feedback">
+                    At least {{ formaDesdeData.get('nombreCompleto.nombre').errors.minlength.requiredLength }} charaters
+                </div>
+
+            </div>
         </div>
-        <div *ngIf="formaDesdeData.get('nombreCompleto.nombre').errors && formaDesdeData.get('nombreCompleto.nombre').errors.minlength " class="form-control-feedback">
-          At least {{ formaDesdeData.get('nombreCompleto.nombre').errors.minlength.requiredLength }} charaters
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
+            </div>
         </div>
-       
-      </div>
+
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Apellido</label>
-      <div class="col-8">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
 
-        <input class="form-control"
-               type="text"
-               placeholder="Apellido"
-               formControlName="apellido">
-      </div>
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo">
+        </div>
     </div>
 
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Correo</label>
-    <div class="col-md-8">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">User name</label>
+        <div class="col-md-8">
 
-      <input class="form-control"
-             type="email"
-             placeholder="Correo electrónico"
-             formControlName="correo">
+            <input class="form-control" type="text" placeholder="Username" formControlName="username">
+        </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Password</label>
-    <div class="col-md-8">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-md-8">
 
-      <input class="form-control"
-             type="password"
-             placeholder="Password"
-             formControlName="password1">
+            <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+        </div>
     </div>
-  </div>
 
 
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Confirmar password</label>
-    <div class="col-md-8">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Confirmar password</label>
+        <div class="col-md-8">
 
-      <input class="form-control"
-             type="password"
-             placeholder="Confirmar password"
-             formControlName="password2">
+            <input class="form-control" type="password" placeholder="Confirmar password" formControlName="password2">
+        </div>
     </div>
-  </div>
 
 
-  <div class="form-group row">
-      <label class="col-2 col-form-label">Hobbies</label>
-      <div class="col-md-8" formArrayName = "pasatiempo">
-        <input *ngFor="let hobbie of formaDesdeData.controls['pasatiempo'].controls; let i = index"
-          type="text"
-          [formControlName]="i"
-          class="form-control">    
-      </div>
-      <button (click)="addHobbie()" class="btn btn-primary">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Hobbies</label>
+        <div class="col-md-8" formArrayName="pasatiempo">
+            <input *ngFor="let hobbie of formaDesdeData.controls['pasatiempo'].controls; let i = index" type="text" [formControlName]="i" class="form-control">
+        </div>
+        <button (click)="addHobbie()" class="btn btn-primary">
         Nuevo
       </button>
     </div>
 
 
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">&nbsp;</label>
-    <div class="input-group col-md-8">
-      <!--  [disabled] = "!formaDesdeData.valid"-->
-      <button 
-      
-        type="submit" 
-        class="btn btn-outline-primary">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <!--  [disabled] = "!formaDesdeData.valid"-->
+            <button type="submit" class="btn btn-outline-primary">
         Guardar
       </button>
+        </div>
     </div>
-  </div>
 
-  {{ formaDesdeData.valid }}
+    <h5>Formulario valido : <small>{{ formaDesdeData.valid }}</small></h5>
+
+
+    <br>
+
+    <h5>Formulario Status : <small> {{ formaDesdeData.status }}</small></h5>
+
 
 </form>
