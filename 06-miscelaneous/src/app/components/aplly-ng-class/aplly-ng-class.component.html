@@ -1,0 +1,38 @@
+
+<h1>Css examples <small>aplying NgClass</small></h1>
+
+<div [ngClass]="dinamicAlert" class="alert" role="alert">
+  This is an Alert!
+</div>
+
+<button type="button" class="btn btn-info" (click)="dinamicAlert = 'alert-warning'"> Info </button>
+<button type="button" class="btn btn-info" (click)="dinamicAlert = 'alert-success'"> Success </button>
+<br>
+<br>
+<h3 [ngClass]="{ 'text-danger':properties.danger,  'text-info':!properties.danger}">
+  NgClass en textos
+</h3>
+<!--Note como en class se deja solo ep paretnt o raiz class = "btn" para poder aplicar el resto desde el ngclass -->
+<button 
+type="button" 
+class="btn" 
+[ngClass] = "{ 'btn-danger':properties.danger,  'btn-info':!properties.danger}"
+(click)="properties.danger = !properties.danger "> Change color text </button>
+
+<br>
+<br>
+<h3 [ngClass]="{ 'text-danger':properties.danger,  'text-info':!properties.danger}">
+  Proceso Asíncrono
+</h3>
+<!--Note como en class se deja solo ep paretnt o raiz class = "btn" para poder aplicar el resto desde el ngclass -->
+<button 
+(click) = "ejecutarTestLoading()"
+[disabled] = "loading"
+type="button" 
+class="btn btn-primary" > 
+  <i class="fas" [ngClass]="{ 'fa-save':!loading, 'fa-sync-alt fa-spin':loading }" ></i>
+  <span *ngIf = "!loading">Guardar Cambios</span>  
+  <span  *ngIf = "loading">Espere por favor</span> 
+</button>
+
+

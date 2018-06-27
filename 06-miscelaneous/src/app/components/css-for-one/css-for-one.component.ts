@@ -23,6 +23,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CssForOneComponent implements OnInit {
 
+ 
   constructor() { }
 
   ngOnInit() {

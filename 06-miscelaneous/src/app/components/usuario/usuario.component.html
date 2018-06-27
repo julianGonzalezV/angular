@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+
+      <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" [routerLink]="['nuevo']" routerLinkActive="active">Nuevo</button>
+          <button type="button" class="btn btn-secondary" [routerLink]="['editar']" routerLinkActive="active">Editar</button>
+          <button type="button" class="btn btn-secondary" [routerLink]="['detalle']" routerLinkActive="active">Detalle</button>
+        </div>
+
+  </div>
+
+</div>
+
+<!--acá se le dice algo así como que todas las rutas HIJAS las renderice en  roter-oulet 
+  para que sepa donde renderizar
+-->
+
+<router-outlet> 
+        
+  </router-outlet> 
