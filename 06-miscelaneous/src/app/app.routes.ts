@@ -1,9 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { UsuarioDetalleComponent } from './components/usuario/usuario-detalle.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
-import { UsuarioNuevoComponent } from './components/usuario/usuario-nuevo.component';
-import { UsuarioEditarComponent } from './components/usuario/usuario-editar.component';
+
+//Note tan bacano que permite centralizar los routes por tipo, en este ejemplo los routes para gestion de 
+//usuarios se encuentran en USUARIO_ROUTES y así evitamos
+import { USUARIO_ROUTES } from './components/usuario/usuario.routes';
 
 
 const APP_ROUTES: Routes = [
@@ -11,12 +12,8 @@ const APP_ROUTES: Routes = [
   {
     path: 'usuario/:id', 
     component: UsuarioComponent,
-    children: [
-      {path: 'nuevo', component: UsuarioNuevoComponent},
-      {path: 'editar', component: UsuarioEditarComponent},
-      {path: 'detalle', component: UsuarioDetalleComponent},
-      {path: '**', pathMatch: 'full', redirectTo: 'nuevo'}
-    ]
+    children: USUARIO_ROUTES
+    
   },
  
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
