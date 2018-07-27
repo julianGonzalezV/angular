@@ -6,22 +6,27 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-
-
-
-//Angular material components import 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
+import { MaterialModule } from './custom_modules/material/material.module';
+import { MapaComponent } from './components/mapa/mapa.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapaEditarComponent } from './components/mapa-editar.component';
 
 @NgModule({
+  entryComponents:[
+    MapaEditarComponent
+  ],
   declarations: [
-    AppComponent
+    AppComponent,
+    MapaComponent,
+    MapaEditarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule
+    MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDjRDSGixF1vzMpbRyf6xRdCHLsA7GCk-k'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
