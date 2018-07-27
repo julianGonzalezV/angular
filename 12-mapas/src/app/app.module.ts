@@ -25,7 +25,7 @@ import { MapaEditarComponent } from './components/mapa-editar.component';
     BrowserAnimationsModule,
     MaterialModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDjRDSGixF1vzMpbRyf6xRdCHLsA7GCk-k'
+      apiKey: 'key123'
     })
   ],
   providers: [],
