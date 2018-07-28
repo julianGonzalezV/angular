@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { FormBuilder, FormGroup, FormControlName } from '@angular/forms';
+
 
 @Component({
   selector: 'app-mapa-editar',
@@ -8,12 +10,29 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class MapaEditarComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<MapaEditarComponent>,
+  forma: FormGroup;
+
+  constructor(
+    public fb: FormBuilder,
+    public dialogRef: MatDialogRef<MapaEditarComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
       console.log(data.title);
-     }
+      this.forma = fb.group({
+        'title': data.title,
+        'description': data.description
+      });
+    }
 
   ngOnInit() {
+  }
+
+  guardarCambios() {
+    //Note como al close se le pasa la data del formulario, para pasrle los datos al padre que es mapa component 
+    this.dialogRef.close(this.forma.value);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

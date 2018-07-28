@@ -10,6 +10,7 @@ import { MaterialModule } from './custom_modules/material/material.module';
 import { MapaComponent } from './components/mapa/mapa.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapaEditarComponent } from './components/mapa-editar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   entryComponents:[
@@ -24,8 +25,10 @@ import { MapaEditarComponent } from './components/mapa-editar.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'key123'
+      apiKey: '',
+      libraries: ["places"]
     })
   ],
   providers: [],

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//Angular material components import 
+// Angular material components import 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -17,18 +18,20 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatProgressBarModule,
     MatCardModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
-  //exports es la coleccion de modulos o elemenetos que deseo que se exporten cuando se exporte este modulo 
-  //que en este caso se llama MaterialModule, sino le digo esto entonces solo estarán dismponible a nivel 
-  //local
+  // exports es la coleccion de modulos o elemenetos que deseo que se exporten cuando se exporte este modulo 
+  // que en este caso se llama MaterialModule, sino le digo esto entonces solo estarán dismponible a nivel 
+  // local
   exports: [  
     MatToolbarModule,
     MatButtonModule,
     MatProgressBarModule,
     MatCardModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   declarations: []
 })
