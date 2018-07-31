@@ -27,19 +27,25 @@ export class MapaComponent implements OnInit {
   public searchElementRef: ElementRef;
 
 
-  constructor(public snackBar: MatSnackBar, public dialog: MatDialog, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+  constructor(public snackBar: MatSnackBar, public dialog: MatDialog, 
+    private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     if(localStorage.getItem('marcadores')){
       this.marcadores = JSON.parse(localStorage.getItem('marcadores'));
     }
   }
 
   ngOnInit() {
-
     this.searchControl = new FormControl();
     // load Places Autocomplete
+    this.autoCompleteSetup();
+  }
+
+  autoCompleteSetup(){
     this.mapsAPILoader.load().then(() => {
+      //let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
+        types: ['geocode'],
+        componentRestrictions: {country: "co"}
       });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
@@ -54,10 +60,32 @@ export class MapaComponent implements OnInit {
           // set latitude, longitude and zoom
           this.lat = place.geometry.location.lat();
           this.lng = place.geometry.location.lng();
+          this.marcadores.push(new Marcador(this.lat, this.lng));
         });
       });
     });
   }
+/*
+  SearchBoxSetup(){
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.SearchBox(this.searchElementRef.nativeElement);
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          // get the place result
+          let places = autocomplete.getPlaces();
+
+          // verify result
+          if (places.length == 0) {
+            return;
+          }
+
+          // set latitude, longitude and zoom
+          this.lat = place.geometry.location.lat();
+          this.lng = place.geometry.location.lng();
+        });
+      });
+    });
+  }*/
 
   agregarMarcador( event ){
     this.marcadores.push(new Marcador(event.coords.lat, event.coords.lng));
