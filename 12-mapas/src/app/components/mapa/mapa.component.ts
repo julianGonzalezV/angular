@@ -22,6 +22,7 @@ export class MapaComponent implements OnInit {
 
   lat = 6.2441988;
   lng = -75.6512524;
+  kmlSrc = "valleAburra.kml";
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -42,6 +43,7 @@ export class MapaComponent implements OnInit {
 
   autoCompleteSetup(){
     this.mapsAPILoader.load().then(() => {
+      //let kmlLayer = new google.maps.KmlLayer({url: "./valleAburra.kml"});
       //let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ['geocode'],
