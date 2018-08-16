@@ -15,19 +15,31 @@ import {} from '@types/googlemaps';
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
-
   public searchControl: FormControl;
-
   marcadores: Marcador[] = []; 
-
   lat = 6.2441988;
   lng = -75.6512524;
-  kmlSrc = "valleAburra.kml";
+  //Active la siguiente línea y en el html el agm-kml-layer para que la configuracion se cargue desde el 
+  //archivo .kml expuesto publicamente
+  //kmlSrc = "https://www.dropbox.com/s/qmxmqb1zmdxfvn9/valleAburra.kml?dl=1";
+
+  polygonCoords = [
+    {lat: 6.4165065, lng: -75.2585168},
+    {lat: 6.4942877, lng: -75.3848595},
+    {lat: 6.3387134, lng: -75.5970327},
+    {lat: 6.0735153, lng: -75.6917898},
+    {lat: 6.0791516, lng: -75.6327382},
+    {lat: 6.0711256, lng: -75.5730002},
+    {lat: 6.1980978, lng: -75.5407398},
+    {lat: 6.3209694, lng: -75.47275},
+    {lat: 6.4165065, lng: -75.2585168}
+  ];
+
+  containLoc : boolean = false;
+   
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
-
-
   constructor(public snackBar: MatSnackBar, public dialog: MatDialog, 
     private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     if(localStorage.getItem('marcadores')){
@@ -39,17 +51,22 @@ export class MapaComponent implements OnInit {
     this.searchControl = new FormControl();
     // load Places Autocomplete
     this.autoCompleteSetup();
+
+    
   }
 
   autoCompleteSetup(){
     this.mapsAPILoader.load().then(() => {
       //let kmlLayer = new google.maps.KmlLayer({url: "./valleAburra.kml"});
+      
       //let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ['geocode'],
         componentRestrictions: {country: "co"}
       });
       autocomplete.addListener("place_changed", () => {
+          
+
         this.ngZone.run(() => {
           // get the place result
           let place: google.maps.places.PlaceResult  = autocomplete.getPlace();
@@ -62,6 +79,10 @@ export class MapaComponent implements OnInit {
           // set latitude, longitude and zoom
           this.lat = place.geometry.location.lat();
           this.lng = place.geometry.location.lng();
+          this.containLoc =  google.maps.geometry.poly.containsLocation(
+            new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng()),
+            new google.maps.Polygon({paths:this.polygonCoords}));
+
           this.marcadores.push(new Marcador(this.lat, this.lng));
         });
       });
