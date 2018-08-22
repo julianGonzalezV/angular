@@ -12,7 +12,7 @@ export class ChatComponent implements OnInit {
   message = "";
 
   constructor(public chatService: ChatService) {
-    this.chatService.loadMessage().subscribe((msj:any[]) => console.log )
+    this.chatService.loadMessage().subscribe();
    }
 
   ngOnInit() {
