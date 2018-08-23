@@ -5,10 +5,27 @@
 </ul> -->
 <!-- el estilo es para el espacio en blanco a la izquierda y superior
   quitelo para que compruebe :) container sale del bootstrap y main-container de archico styles.css que tenemos en el proyecto-->
+
+
+
+
 <div class="container main-container">
-  <h1>Juliano Messages</h1>
-  <div class="chat-window">
-      <app-chat></app-chat>
-  </div>
-  
+
+    <h1>Juliano Messages</h1>
+
+    <div class="col-md-12 text-lg-right" *ngIf="cs.userLogged.uid">
+        <button class="btn-outline-danger" (click)="cs.logout()"> 
+          Logout</button>
+    </div>
+
+
+
+    <app-login *ngIf="!cs.userLogged.uid">
+
+    </app-login>
+
+    <div class="chat-window" *ngIf="cs.userLogged.uid">
+        <app-chat></app-chat>
+    </div>
+
 </div>
