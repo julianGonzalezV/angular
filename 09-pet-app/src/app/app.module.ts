@@ -7,12 +7,16 @@ import { PetsComponent } from './components/pets/pets.component';
 import { PetComponent } from './components/pet/pet.component';
 import { app_routing } from './app.routes';
 
+//services
+import { PetService } from './services/pet.service';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetsComponent,
-    PetComponent
+    PetComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -20,7 +24,9 @@ import { app_routing } from './app.routes';
     FormsModule,
     app_routing
   ],
-  providers: [],
+  providers: [
+    PetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
