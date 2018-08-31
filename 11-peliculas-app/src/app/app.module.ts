@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { MovieRowHomeComponent } from './componentes/movie-row-home/movie-row-home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetailComponent } from './components/detail/detail.component';
     NavbarComponent,
     HomeComponent,
     SearchComponent,
-    DetailComponent
+    DetailComponent,
+    MovieRowHomeComponent
   ],
   imports: [
     BrowserModule, 
