@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PeliculaServiceService } from './services/pelicula-service.service';
 
 
 @Component({
@@ -10,7 +9,6 @@ import { PeliculaServiceService } from './services/pelicula-service.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(public _ps: PeliculaServiceService){
-    this._ps.getPopulares().subscribe(response=> console.log(response))
+  constructor(){
   }
 }

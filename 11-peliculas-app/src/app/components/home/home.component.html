@@ -1,10 +1,84 @@
 <div class="jumbotron jumbotron-fluid animated fadeIn">
-  <div class="container">
-    <h1 class="display-6">Net Movies</h1>
-    <p class="lead">Tarea de peliculas </p>
-  </div>
+    <div class="container">
+        <h1 class="display-6">Net Movies</h1>
+        <p class="lead">Tarea de peliculas </p>
+    </div>
 </div>
 
-<app-movie-row-home></app-movie-row-home>
-<app-movie-row-home></app-movie-row-home>
-<app-movie-row-home></app-movie-row-home>
+<div class="media">
+    <div class="column">
+        <h2>Pelis Populares</h2>
+        <section class="index">
+            <div class="column" *ngIf="popular">
+                <div class="info first">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w400/{{ popular[0].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+                <div class="info second">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ popular[1].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+
+                </div>
+                <div class="info third">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ popular[2].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+        <section class="index">
+            <div class="column" *ngIf="popular">
+                <div class="info second">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ popular[3].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+
+                </div>
+                <div class="info third">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ popular[4].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+                <div class="info first">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w400/{{ popular[5].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

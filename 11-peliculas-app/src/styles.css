@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+div.media {
+    width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+}
+
+div.media section.index {
+    float: left;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
+    display: inline-block;
+}
+
+div.media section.index div.info {
+    float: left;
+}
+
+div.media section div.first {
+    width: 400px;
+    height: 225px;
+}
+
+div.media section div.second,
+div.media section div.third {
+    width: 200px;
+    height: 113px;
+}
+
+div.media section div.first span div.content {
+    margin-top: 44px;
+    margin-left: 66px;
+}
+
+div.media section.index div.info a.text {
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    display: block;
+}
+
+div.media section.index div.info span {
+    position: relative;
+    display: inline-block;
+}
+
+div.media section div.first span {
+    top: -74px;
+    left: 10px;
+    width: 480px;
+}
+
+div.media section div.second span,
+div.media section div.third span {
+    top: -74px;
+    left: 10px;
+    display: block;
+    width: 230px;
+}

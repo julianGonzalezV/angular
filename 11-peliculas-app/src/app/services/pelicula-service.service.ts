@@ -22,7 +22,7 @@ export class PeliculaServiceService {
     
     // Solucion a cross domain
     //note el callback al final de la url 
-    let url = `${ this.urlMovieDb }/discover/movie?sort_by=popularity.desc&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    let url = `${ this.urlMovieDb }/discover/movie?primary_release_date.gte=2018-08-01&primary_release_date.lte=2018-08-11&sort_by=popularity.desc&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
     return this.jsonp.get( url ).pipe(map( res=> res.json()));
 
   }
