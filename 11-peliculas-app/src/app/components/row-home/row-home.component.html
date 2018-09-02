@@ -1,0 +1,77 @@
+<div class="media">
+    <div class="column">
+        <h2>Pelis Populares</h2>
+        <section class="index">
+            <div class="column" *ngIf="inputMovieList">
+                <div class="info first">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[0].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+                <div class="info second">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[1].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+
+                </div>
+                <div class="info third">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[2].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+        </section>
+        <section class="index">
+            <div class="column" *ngIf="inputMovieList">
+                <div class="info second">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[3].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+
+                </div>
+                <div class="info third">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[4].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+                <div class="info first">
+                    <a href="#">
+                        <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[5].backdrop_path }}" class="img-fluid">
+                    </a>
+                    <span>
+                        <a class="text" href="#">
+                            <h3>Nombre peli</h3>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

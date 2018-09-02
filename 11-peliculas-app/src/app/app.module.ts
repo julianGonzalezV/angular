@@ -10,7 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
-import { MovieRowHomeComponent } from './componentes/movie-row-home/movie-row-home.component';
+import { RowHomeComponent } from './components/row-home/row-home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { MovieRowHomeComponent } from './componentes/movie-row-home/movie-row-ho
     HomeComponent,
     SearchComponent,
     DetailComponent,
-    MovieRowHomeComponent
+    RowHomeComponent
   ],
   imports: [
     BrowserModule, 
