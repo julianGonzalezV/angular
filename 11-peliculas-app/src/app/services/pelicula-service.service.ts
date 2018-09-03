@@ -36,9 +36,20 @@ export class PeliculaServiceService {
     return this.jsonp.get( url ).pipe(map( res => res.json()));
   }
 
+  /*busca una pelicula por el texto dato, igualmente trae todos los elementos que coinciden
+  */
   buscarPelicula(text: string){
-    const url = `${ this.urlMovieDb }/search/movie?query=${ text }&sort_by=popularity.desc
-    &api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    const url = `${ this.urlMovieDb }/search/movie?query=${ text }&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    return this.jsonp.get( url ).pipe(map( res => res.json()));
+  }
+
+  getPelicula(id: string){
+    const url = `${ this.urlMovieDb }/movie/${ id }?api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    return this.jsonp.get( url ).pipe(map( res => res.json()));
+  }
+
+  getLatest(){
+    const url = `${ this.urlMovieDb }/movie/latest?api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
     return this.jsonp.get( url ).pipe(map( res => res.json()));
   }
 }

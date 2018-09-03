@@ -1,7 +1,7 @@
-import { PeliculaServiceService } from '../../services/pelicula-service.service';
 import { Component, OnInit,  Input, Output } from '@angular/core';
 // Para poder atrapar los parámetros que se envían por url ejemplo http://localhost:4200/pet/4  (para atrapar el 4)
 import { ActivatedRoute } from '@angular/router';
+import { PeliculaServiceService } from '../../services/pelicula-service.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,11 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailComponent implements OnInit {
   movie: any = {};
   constructor(private _ps: PeliculaServiceService,
-      private activatedR: ActivatedRoute) {
+      private activatedR: ActivatedRoute) {       
       this.activatedR.params.subscribe(params => {
       // se coloca id porque así se llama en app.routes.ts --> /:id
-      this.movie = this._ps.buscarPelicula(params['id']);
-      console.log('Movie id choosed ' + params['id'], this.movie);
+      this._ps.getPelicula(params['id']).subscribe(response => {
+        console.log('Movie id choosed ' + params['id'], response);
+        this.movie = response
+      });
+    
       });
     }
 

@@ -12,6 +12,8 @@ import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { RowHomeComponent } from './components/row-home/row-home.component';
 import { APP_ROUTING } from './app.routes';
+import { SearhMovieComponent } from './components/searh-movie/searh-movie.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { APP_ROUTING } from './app.routes';
     HomeComponent,
     SearchComponent,
     DetailComponent,
-    RowHomeComponent
+    RowHomeComponent,
+    SearhMovieComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule, 

@@ -1,14 +1,11 @@
-<h1>
-  {{ movie.original_title | uppercase }}
-</h1>
+<h2>
+  {{ movie.title | uppercase }}
+</h2>
 
-<hr>
 
 <div class='row'>
   <div class='col-md-4'>
-      <img [src]="'http://image.tmdb.org/t/p/w200/'+pet.poster_path" class="img-fluid" alt="">
-      <br> <br>
-      <a [routerLink]="['/home']" class="btn btn-outline-danger btn-block" href=""> Regresar </a>
+      <img [src]="'http://image.tmdb.org/t/p/w200/'+movie.poster_path" class="img-fluid" alt="">     
 
   </div>
 
@@ -27,8 +24,11 @@
         Frase celebre
       </h3>
       <p>
-          {{ movie.overview }}
+          {{ movie.tagline }}
       </p>
+      <p>Popularidad: <small> {{ movie.popularity }}</small></p>
+      <p>Voto promedio:  <small> {{ movie.vote_average }}</small></p>
+      <a [routerLink]="['/home']" class="btn btn-outline-danger btn-block" href=""> Regresar </a>
 
   </div>
 
