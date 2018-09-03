@@ -4,33 +4,33 @@
         <section class="index">
             <div class="column" *ngIf="inputMovieList">
                 <div class="info first">
-                    <a href="#">
+                    <a [routerLink]="['movie',inputMovieList[0].id ]"  href="">
                         <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[0].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text" [routerLink]="['movie',inputMovieList[0].id ]" >
+                            <h3>{{ inputMovieList[0].title }}</h3>
                         </a>
                     </span>
                 </div>
                 <div class="info second">
-                    <a href="#">
+                    <a [routerLink]="['movie',inputMovieList[1].id ]" >
                         <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[1].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text" [routerLink]="['movie',inputMovieList[1].id ]" >
+                            <h3>{{ inputMovieList[1].title }}</h3>
                         </a>
                     </span>
 
                 </div>
                 <div class="info third">
-                    <a href="#">
+                    <a [routerLink]="['movie',inputMovieList[2].id ]" >
                         <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[2].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text" [routerLink]="['movie',inputMovieList[2].id ]" >
+                            <h3>{{ inputMovieList[2].title }}</h3>
                         </a>
                     </span>
                 </div>
@@ -40,33 +40,33 @@
         <section class="index">
             <div class="column" *ngIf="inputMovieList">
                 <div class="info second">
-                    <a href="#">
+                    <a [routerLink]="['movie',inputMovieList[3].id ]" >
                         <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[3].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text" [routerLink]="['movie',inputMovieList[3].id ]" >
+                            <h3>{{ inputMovieList[3].title }}</h3>
                         </a>
                     </span>
 
                 </div>
                 <div class="info third">
-                    <a href="#">
+                    <a  [routerLink]="['movie',inputMovieList[4].id ]">
                         <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[4].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text"  [routerLink]="['movie',inputMovieList[4].id ]">
+                            <h3>{{ inputMovieList[4].title }}</h3>
                         </a>
                     </span>
                 </div>
                 <div class="info first">
-                    <a href="#">
+                    <a  [routerLink]="['movie',inputMovieList[5].id ]">
                         <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[5].backdrop_path }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" href="#">
-                            <h3>Nombre peli</h3>
+                        <a class="text"  [routerLink]="['movie',inputMovieList[5].id ]">
+                            <h3>{{ inputMovieList[5].title }}</h3>
                         </a>
                     </span>
                 </div>
