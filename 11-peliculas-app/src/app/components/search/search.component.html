@@ -1,4 +1,10 @@
 
-<div class="card-columns">
-    <app-movie-card  [movie]="movieIter"  *ngFor="let movieIter of movies"></app-movie-card>
-</div>
+ <div>
+  <form >
+    <input class="form-control mr-sm-2" #insertedText type="text" placeholder="Busca tu Pelicula" aria-label="Search" (keyup.enter)="searchMovie(insertedText.value)">
+  </form>
+  <div class="card-columns">
+      <app-movie-card  [movie]="movieIter"  *ngFor="let movieIter of movies"></app-movie-card>
+  </div>
+ </div>
+ 

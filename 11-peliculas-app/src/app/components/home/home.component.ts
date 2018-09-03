@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   constructor(private ps: PeliculaServiceService) {
     this.ps.getPopulares().subscribe(response => {
       this.popular =  response.results.slice(0, 6);
-      console.log('result'  , this.popular);
     });
 
     this.ps.getInTheatres().subscribe(response => {
