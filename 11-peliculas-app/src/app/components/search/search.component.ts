@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
         console.log(' filteredMovie choosed '+params['filteredMovie']);
         if(params['filteredMovie']){
           this.movieFilter = params['filteredMovie'];
-          this.searchMovie(this.movieFilter)
+          this.searchMovie()
         }else{
           this.ps.getInTheatres().subscribe( response => {
             this.movies = response.results;
@@ -30,17 +30,18 @@ export class SearchComponent implements OnInit {
     console.log('on init ')
   }
 
-  searchMovie(textVal:string) {
+  searchMovie() {
     console.log('va a buscar la pelicula')
-    if(textVal){
-      this._activatedR.params.subscribe(params => {
-        this.movieFilter = textVal;
-        this.ps.buscarPelicula(this.movieFilter ).subscribe( response => {
-          this.movies = response.results;
-        });
-        
-      });
+    if(this.movieFilter.length == 0){
+      return;
     }
+
+    this._activatedR.params.subscribe(params => {
+      this.ps.buscarPelicula(this.movieFilter ).subscribe( response => {
+        this.movies = response.results;
+      });
+      
+    });    
     
   }
 }

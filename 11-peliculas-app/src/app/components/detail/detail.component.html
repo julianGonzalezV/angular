@@ -5,7 +5,7 @@
 
 <div class='row'>
   <div class='col-md-4'>
-      <img [src]="'http://image.tmdb.org/t/p/w200/'+movie.poster_path" class="img-fluid" alt="">     
+      <img [src]="movie | movieImage" class="img-fluid" alt="">     
 
   </div>
 
@@ -28,7 +28,7 @@
       </p>
       <p>Popularidad: <small> {{ movie.popularity }}</small></p>
       <p>Voto promedio:  <small> {{ movie.vote_average }}</small></p>
-      <a [routerLink]="['/home']" class="btn btn-outline-danger btn-block" href=""> Regresar </a>
+      <a [routerLink]="['/'+returnTo]" class="btn btn-outline-danger btn-block" href=""> Regresar </a>
 
   </div>
 

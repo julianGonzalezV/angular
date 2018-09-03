@@ -1,35 +1,35 @@
 <div class="media">
-    <div class="column">
+    <div class="column" *ngIf="inputMovieList">
         <h2>{{inputTitle}}</h2>
         <section class="index">
-            <div class="column" *ngIf="inputMovieList">
+            <div class="column" >
                 <div class="info first">
-                    <a [routerLink]="['/movie',inputMovieList[0].id ]"  href="">
-                        <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[0].backdrop_path }}" class="img-fluid">
+                    <a [routerLink]="['/movie',inputMovieList[0].id,'home' ]"  href="">
+                        <img src= "{{ inputMovieList[0] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" [routerLink]="['/movie',inputMovieList[0].id ]" >
+                        <a class="text" [routerLink]="['/movie',inputMovieList[0].id,'home' ]" >
                             <h3>{{ inputMovieList[0].title }}</h3>
                         </a>
                     </span>
                 </div>
                 <div class="info second">
-                    <a [routerLink]="['/movie',inputMovieList[1].id ]" >
-                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[1].backdrop_path }}" class="img-fluid">
+                    <a [routerLink]="['/movie',inputMovieList[1].id,'home' ]" >
+                        <img src="{{ inputMovieList[1] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" [routerLink]="['/movie',inputMovieList[1].id ]" >
+                        <a class="text" [routerLink]="['/movie',inputMovieList[1].id,'home' ]" >
                             <h3>{{ inputMovieList[1].title }}</h3>
                         </a>
                     </span>
 
                 </div>
                 <div class="info third">
-                    <a [routerLink]="['/movie',inputMovieList[2].id ]" >
-                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[2].backdrop_path }}" class="img-fluid">
+                    <a [routerLink]="['/movie',inputMovieList[2].id,'home' ]" >
+                        <img src="{{ inputMovieList[2] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" [routerLink]="['/movie',inputMovieList[2].id ]" >
+                        <a class="text" [routerLink]="['/movie',inputMovieList[2].id,'home' ]" >
                             <h3>{{ inputMovieList[2].title }}</h3>
                         </a>
                     </span>
@@ -38,34 +38,34 @@
             </div>
         </section>
         <section class="index">
-            <div class="column" *ngIf="inputMovieList">
+            <div class="column">
                 <div class="info second">
-                    <a [routerLink]="['/movie',inputMovieList[3].id ]" >
-                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[3].backdrop_path }}" class="img-fluid">
+                    <a [routerLink]="['/movie',inputMovieList[3].id,'home' ]" >
+                        <img src="{{ inputMovieList[3] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text" [routerLink]="['/movie',inputMovieList[3].id ]" >
+                        <a class="text" [routerLink]="['/movie',inputMovieList[3].id,'home' ]" >
                             <h3>{{ inputMovieList[3].title }}</h3>
                         </a>
                     </span>
 
                 </div>
                 <div class="info third">
-                    <a  [routerLink]="['/movie',inputMovieList[4].id ]">
-                        <img src="http://image.tmdb.org/t/p/w200/{{ inputMovieList[4].backdrop_path }}" class="img-fluid">
+                    <a  [routerLink]="['/movie',inputMovieList[4].id,'home' ]">
+                        <img src="{{ inputMovieList[4] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text"  [routerLink]="['/movie',inputMovieList[4].id ]">
+                        <a class="text"  [routerLink]="['/movie',inputMovieList[4].id,'home' ]">
                             <h3>{{ inputMovieList[4].title }}</h3>
                         </a>
                     </span>
                 </div>
                 <div class="info first">
-                    <a  [routerLink]="['/movie',inputMovieList[5].id ]">
-                        <img src="http://image.tmdb.org/t/p/w400/{{ inputMovieList[5].backdrop_path }}" class="img-fluid">
+                    <a  [routerLink]="['/movie',inputMovieList[5].id,'home' ]">
+                        <img src="{{ inputMovieList[5] | movieImage  }}" class="img-fluid">
                     </a>
                     <span>
-                        <a class="text"  [routerLink]="['/movie',inputMovieList[5].id ]">
+                        <a class="text"  [routerLink]="['/movie',inputMovieList[5].id,'home' ]">
                             <h3>{{ inputMovieList[5].title }}</h3>
                         </a>
                     </span>

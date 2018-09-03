@@ -14,6 +14,7 @@ import { RowHomeComponent } from './components/row-home/row-home.component';
 import { APP_ROUTING } from './app.routes';
 import { SearhMovieComponent } from './components/searh-movie/searh-movie.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieImagePipe } from './pipes/movie-image.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     DetailComponent,
     RowHomeComponent,
     SearhMovieComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieImagePipe
   ],
   imports: [
     BrowserModule, 

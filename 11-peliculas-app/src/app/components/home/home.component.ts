@@ -14,15 +14,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private ps: PeliculaServiceService) {
     this.ps.getPopulares().subscribe(response => {
-      this.popular =  response.results.slice(0, 6);
+      this.popular =  response.results;
     });
 
     this.ps.getInTheatres().subscribe(response => {
-      this.inTheatres =  response.results.slice(0, 6);
+      this.inTheatres =  response.results;
     });
 
     this.ps.getPopularKids().subscribe(response => {
-      this.popularKids =  response.results.slice(0, 6);
+      this.popularKids =  response.results;
     });
   }
 

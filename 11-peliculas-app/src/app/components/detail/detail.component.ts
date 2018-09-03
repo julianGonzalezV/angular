@@ -10,12 +10,14 @@ import { PeliculaServiceService } from '../../services/pelicula-service.service'
 })
 export class DetailComponent implements OnInit {
   movie: any = {};
+  returnTo: string;
   constructor(private _ps: PeliculaServiceService,
       private activatedR: ActivatedRoute) {       
       this.activatedR.params.subscribe(params => {
       // se coloca id porque así se llama en app.routes.ts --> /:id
       this._ps.getPelicula(params['id']).subscribe(response => {
-        console.log('Movie id choosed ' + params['id'], response);
+        console.log('Movie id choosed ' + params['id'], params['fromPlace']);
+        this.returnTo = params['fromPlace']
         this.movie = response
       });
     

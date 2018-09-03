@@ -1,9 +1,9 @@
 <div class="card animated fadeIn fast ">
 
-  <img class="card-img-top img-logo" [src]="'http://image.tmdb.org/t/p/w200/'+movie.poster_path" [alt]="movie.title">
+  <img class="card-img-top img-logo" [src]="movie | movieImage" [alt]="movie.title">
   <div class="card-body">
       <h5 class="card-title">{{ movie.title }}</h5>
-      <p class="card-text">{{ movie.overview }}</p>
-      <button class="btn btn-outline-primary btn-block" [routerLink]="['/movie',movie.id ]" > Ver más </button>
+      <p class="card-text text-justify">{{ movie.overview | slice: 0: 250 }}...</p>
+      <button class="btn btn-outline-primary btn-block" [routerLink]="['/movie',movie.id, 'search' ]" > Ver más </button>
   </div>
 </div>

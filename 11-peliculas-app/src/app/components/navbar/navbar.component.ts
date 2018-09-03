@@ -12,10 +12,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMovie(textVal:string) {
-    console.log('va a buscar la pelicula desde Navbar con filtro ', textVal)
-    const filter = textVal;
-    this._router.navigate(['search', filter]);    
+  searchMovie(textVal: string) {
+    if(textVal.length == 0){
+      return;
+    }
+    this._router.navigate(['search', textVal]);    
   }
 
 }

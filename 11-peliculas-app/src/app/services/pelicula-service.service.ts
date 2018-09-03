@@ -27,7 +27,12 @@ export class PeliculaServiceService {
   }
 
   getInTheatres() {
-    const url = `${ this.urlMovieDb }/discover/movie?primary_release_date.gte=2018-08-01&primary_release_date.lte=2018-08-11&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    const startDate = new Date();
+    let endDate = new Date();
+    endDate.setDate( startDate.getDate() + 7);
+    let fromStr = `${startDate.getFullYear()}-${startDate.getMonth() + 1}-${startDate.getDay()}`;
+    let toStr = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDay()}`;
+    const url = `${ this.urlMovieDb }/discover/movie?primary_release_date.gte=${ fromStr }&primary_release_date.lte=${ toStr }&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
     return this.jsonp.get( url ).pipe(map( res => res.json()));
   }
 
