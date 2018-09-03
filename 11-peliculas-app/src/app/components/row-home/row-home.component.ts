@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RowHomeComponent implements OnInit {
 
   @Input() inputMovieList: any[];
+  @Input() inputTitle: string;
 
   constructor() { }
 

@@ -8,12 +8,22 @@ import { PeliculaServiceService } from '../../services/pelicula-service.service'
 })
 export class HomeComponent implements OnInit {
 
+  inTheatres: any[];
   popular: any[];
+  popularKids: any[];
 
   constructor(private ps: PeliculaServiceService) {
     this.ps.getPopulares().subscribe(response => {
       this.popular =  response.results.slice(0, 6);
       console.log('result'  , this.popular);
+    });
+
+    this.ps.getInTheatres().subscribe(response => {
+      this.inTheatres =  response.results.slice(0, 6);
+    });
+
+    this.ps.getPopularKids().subscribe(response => {
+      this.popularKids =  response.results.slice(0, 6);
     });
   }
 

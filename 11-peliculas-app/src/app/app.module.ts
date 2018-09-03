@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { RowHomeComponent } from './components/row-home/row-home.component';
+import { APP_ROUTING } from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { RowHomeComponent } from './components/row-home/row-home.component';
     BrowserModule, 
     FormsModule, 
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    APP_ROUTING
   ],
   providers: [
     PeliculaServiceService
