@@ -1,0 +1,15 @@
+<div class="container main-container">
+  <h1>Mi channel</h1>
+  <hr>
+
+  <div class="card-columns" *ngIf="videos.length > 0">
+    <div class="card" *ngFor="let videoItem of videos">
+      <img class="card-img-top" [src]="videoItem.thumbnails.high.url" alt="videoItem.title">
+      <div class="card-body">
+        <h5 class="card-title">{{ videoItem.title }}</h5>
+        <button (click) = "verVide( videoItem )"  class="btn btn-outline-primary" >
+          Ver video
+        </button>
+    </div>
+
+</div>
