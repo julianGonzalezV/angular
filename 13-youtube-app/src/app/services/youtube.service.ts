@@ -21,6 +21,11 @@ export class YoutubeService {
     parameters.set('maxResults', '10');
     parameters.set('playlistId', this.playlistId);
     parameters.set('key', this.apiKey);
+
+    if( this.nextPageToken ) {
+      parameters.set('pageToken', this.nextPageToken);
+    }
+
     return this._http.get( url, { search: parameters } ).pipe(map( res => {
       this.nextPageToken = res.json().nextPageToken;
       // los snipped son los videos que se ha cargado al canal

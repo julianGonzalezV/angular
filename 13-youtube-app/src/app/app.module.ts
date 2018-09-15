@@ -8,12 +8,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // services
 import { YoutubeService } from './services/youtube.service';
 import { HttpModule } from '../../node_modules/@angular/http';
+import { DoomSeguroPipe } from './pipes/doom-seguro.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    DoomSeguroPipe
   ],
   imports: [
     BrowserModule,
