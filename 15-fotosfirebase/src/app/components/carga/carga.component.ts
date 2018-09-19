@@ -11,6 +11,8 @@ import { ImagesService } from '../../services/images.service';
 })
 export class CargaComponent implements OnInit {
 
+  isOverDrop = false;
+
   files: FileItem[] = [];
 
   constructor( public _is: ImagesService ) { }
@@ -21,6 +23,10 @@ export class CargaComponent implements OnInit {
 
   loadImages() {
     this._is.loadImagesFirebase(this.files);
+  }
+
+  testOverElem( event ) {
+    console.log(event);
   }
 
 }
