@@ -4,7 +4,7 @@
         <!-- { 'file-over': isOverDrop } : quiere decir que cuando isOverDrop sea true se va a colocar el estilo file-over
         mouseOver como es un evento va en parentesis y $event que se le pasa al testOverElem es el emitido por mouseOver, es 
       esta caso un booleano -->
-        <div appNgDropFiles (mouseOver)="isOverDrop = $event" [ngClass]="{ 'file-over': isOverDrop }" class="well drop-zone">
+        <div appNgDropFiles [files]="files" (mouseOver)="isOverDrop = $event" [ngClass]="{ 'file-over': isOverDrop }" class="well drop-zone">
             <h4>Drang and drop here</h4>
             <img src="assets/drop-images.png" alt="">
         </div>
@@ -24,12 +24,12 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <th>xyz</th>
-                    <th>123</th>
+                <tr *ngFor="let item of files">
+                    <th [ngClass]="{ 'text-green': item.progress >= 100 }">{{ item.fileName }}</th>
+                    <th>{{ item.file.size / 1024 / 1024 | number: '.2-2'}}MB</th>
                     <th>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%"></div>
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
                         </div>
                     </th>
                 </tr>

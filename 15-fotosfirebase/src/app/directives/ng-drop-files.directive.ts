@@ -26,6 +26,7 @@ export class NgDropFilesDirective {
   public onDragOver( event: any ) {
     // cada vez que haya un over sobre el elemento entonces se cambia la bandera 
     this.mouseOver.emit( true );
+    this._preventStop( event );
   }
 
   @HostListener('dragleave', ['$event'])
@@ -39,7 +40,7 @@ export class NgDropFilesDirective {
   @HostListener('drop', ['$event'])
   public onDrop( event: any ) {
     const transfer = this._getTransfer( event );
-    if( !transfer ) {
+    if ( !transfer ) {
       return;
     }
 
@@ -58,9 +59,16 @@ export class NgDropFilesDirective {
   }
 
   private _extractFile( fileList: FileList ) {
-    for ( const property in Object.getOwnPropertyNames( fileList ) ) {
-      const fileTemp = fileList[property];
+    for ( const property of Object.getOwnPropertyNames( fileList ) ) {
+      const temporalFile = fileList[property];
+      console.log('entra al for', temporalFile.name, temporalFile.type);
+      if ( this._canBeLoaded(temporalFile) ) {
+        console.log('entra al if');
+        const newFile = new FileItem( temporalFile );
+        this.files.push( newFile );
+      }
     }
+    console.log('archivos', this.files);
   }
 
 
@@ -73,14 +81,14 @@ export class NgDropFilesDirective {
 
   // 2) Valida que el archivo ya no haya sido asignado o adjuntado vía drag and drop
   private _fileDropped( fileName: string ): boolean {
-    for( const file of this.files ) {
+    for ( const file of this.files ) {
       if ( file.fileName === fileName ) {
         console.log('ya fué arrastrado', fileName);
-        return true;
+        return false;
       }
     }
 
-    return false;
+    return true;
   }
 
 
@@ -90,9 +98,9 @@ export class NgDropFilesDirective {
     return ( tipo === '' || tipo === undefined ) ? false : tipo.startsWith('image');
   }
 
-  // 4) verificar que lo que se arrastra sea una imagen
+  // 4) verificar si el archivo puede ser cargado
   private _canBeLoaded( file: File ): boolean {
-    if( this._fileDropped( file.name ) && this._isAnImage(file.type ) ){
+    if ( this._fileDropped( file.name ) && this._isAnImage(file.type ) ) {
       return true;
     }
 
