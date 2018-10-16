@@ -7,7 +7,7 @@
             <img class="card-img-top" [src]="videoItem.thumbnails.high.url" alt="videoItem.title">
             <div class="card-body">
                 <h5 class="card-title">{{ videoItem.title }}</h5>
-                <button (click)="verVideo( videoItem )" class="btn btn-outline-primary">
+                <button type="button" (click)="verVideo(videoItem)" class="btn btn-outline-primary">
                   Ver video
                 </button>
             </div>

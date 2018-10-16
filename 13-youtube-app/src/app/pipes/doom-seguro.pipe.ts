@@ -11,7 +11,8 @@ export class DoomSeguroPipe implements PipeTransform {
 
   transform(videoId: string): any {
     const url = 'https://www.youtube.com/embed/';
-    console.log('va por el video ',videoId );
+    var v1 = this._domSanitizer.bypassSecurityTrustResourceUrl(url + videoId );
+    console.log('va por el video ',v1 );
     return this._domSanitizer.bypassSecurityTrustResourceUrl(url + videoId );
   }
 

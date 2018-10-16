@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   verVideo(video: any) {
     this.selectedVideo = video;
+    console.log('va a mostrar el modal',video.title );
     $('#exampleModal').modal('show');
   }
 
