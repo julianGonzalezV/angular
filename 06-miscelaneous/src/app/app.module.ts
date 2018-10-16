@@ -13,6 +13,8 @@ import { UsuarioNuevoComponent } from './components/usuario/usuario-nuevo.compon
 import { UsuarioEditarComponent } from './components/usuario/usuario-editar.component';
 import { UsuarioDetalleComponent } from './components/usuario/usuario-detalle.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { GoogleCaptchaComponent } from './components/google-captcha/google-captcha.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -27,11 +29,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UsuarioNuevoComponent,
     UsuarioEditarComponent,
     UsuarioDetalleComponent,
-    NavbarComponent
+    NavbarComponent,
+    GoogleCaptchaComponent,
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    RecaptchaModule.forRoot()
 
   ],
   providers: [],

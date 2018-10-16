@@ -5,6 +5,7 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 //Note tan bacano que permite centralizar los routes por tipo, en este ejemplo los routes para gestion de 
 //usuarios se encuentran en USUARIO_ROUTES y así evitamos
 import { USUARIO_ROUTES } from './components/usuario/usuario.routes';
+import { GoogleCaptchaComponent } from './components/google-captcha/google-captcha.component';
 
 
 const APP_ROUTES: Routes = [
@@ -15,6 +16,7 @@ const APP_ROUTES: Routes = [
     children: USUARIO_ROUTES
     
   },
+  {path: 'google-captcha', component: GoogleCaptchaComponent},
  
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
